@@ -1,18 +1,22 @@
 # PVE VMA extract
 
-Image with all the necessary dependencies to extract a "backup" file from ProxmoxVE.
+Image with all the necessary dependencies to extract/verify a "backup" file from Proxmox VE.
 
 The image exposes `/backup` as a good place to mount the folder with the backup.
 
+
 Uncrompress the archive with:
 
-> $ lzop -d ./file.vma.lzo -p
+> $ unzstd ./file.vma.zst
+
+Or directly print it 
+
+zstdcat ./file.vma.zst
 
 Then extract the archive with 
 
 > $ vma extract ./file.vma -v ./vmaextract
 
-There should now be two file in `vmaextract`:
+Or verify it 
 
-- config_file
-- raw_backup_file
+> $ zstdcat ./file.vma.zst | vma verify -v -
