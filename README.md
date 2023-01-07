@@ -11,7 +11,7 @@ Uncrompress the archive with:
 
 Or directly print it 
 
-zstdcat ./file.vma.zst
+> $ zstdcat ./file.vma.zst
 
 Then extract the archive with 
 
