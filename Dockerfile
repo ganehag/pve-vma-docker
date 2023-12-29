@@ -4,7 +4,7 @@ WORKDIR /tmp
 
 RUN apt-get update && \
   apt-get upgrade -y && \
-  apt-get install -y wget zstd libglib2.0-0 libiscsi7 librbd1 libaio1 lzop glusterfs-common libcurl4-gnutls-dev liburing-dev && \
+  apt-get install -y wget zstd libglib2.0-0 libiscsi7 librbd1 libaio1 lzop glusterfs-common libcurl4-gnutls-dev liburing-dev libnuma-dev && \
   echo "deb http://download.proxmox.com/debian/pve bullseye pve-no-subscription" >> /etc/apt/sources.list && \
   wget http://download.proxmox.com/debian/proxmox-release-bullseye.gpg    -O /etc/apt/trusted.gpg.d/proxmox-release-bullseye.gpg && \
   chmod +r /etc/apt/trusted.gpg.d/proxmox-release-bullseye.gpg && \
