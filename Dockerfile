@@ -8,8 +8,8 @@ RUN apt-get update && \
   echo "deb [signed-by=/etc/apt/keyrings/proxmox-release-bookworm.gpg] http://download.proxmox.com/debian/pve bookworm pve-no-subscription" >> /etc/apt/sources.list && \
   wget http://download.proxmox.com/debian/proxmox-release-bookworm.gpg -O /etc/apt/keyrings/proxmox-release-bookworm.gpg && \
   chmod +r /etc/apt/keyrings/proxmox-release-bookworm.gpg && \
-  apt-get update --fix-missing && \
-  apt-get install -y --fix-missing libproxmox-backup-qemu0-dev && \
+  apt-get update && \
+  apt-get install -y libproxmox-backup-qemu0-dev && \
   apt-get download pve-qemu-kvm && \
   dpkg --fsys-tarfile ./pve-qemu-kvm*.deb | tar xOf - ./usr/bin/vma > ./vma && \
   chmod u+x ./vma && \
